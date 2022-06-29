@@ -8,7 +8,7 @@ let table = document.querySelector('.table');
 //empty array 
 let mylibrary=[];
 
-//constructor
+//constructor (not very useful as this can be done in one line code on line 25)
 function Book(name, author, pages){
     this.name = name;
     this.author = author;
@@ -33,19 +33,24 @@ function inputBook(){
 function displayMyLibrary(){
     let div= document.createElement('div');
     let btn= document.createElement('button');
+    let btn1= document.createElement('button');
     btn.textContent='Remove';
-    
+    btn1.textContent= 'Read';
+
     for (i in mylibrary){
         
-        div.textContent= mylibrary[i].name +' by '+mylibrary[i].author+ ' ' + mylibrary[i].pages +'Pages';
+        div.textContent= mylibrary[i].name +  ' \r\n by \r\n'+  mylibrary[i].author+ ' ' + mylibrary[i].pages +'Pages';
         div.style.color= 'white';
         // btn.classList.remove(`Remove${i-1}`);
         // btn.classList.add(`Remove${i}`);
         div.setAttribute('id', `div${i}`);
         btn.setAttribute('onclick', `remove(div${i})`);
         
+        btn1.setAttribute('onclick', `read(${i})`);
+        btn1.setAttribute('id',`readButton${i}`);
         table.appendChild(div);
         div.appendChild(btn);   
+        div.appendChild(btn1);
     }  
     
 }
@@ -56,3 +61,11 @@ function remove(n){
     n.remove();
     
 } ;
+
+
+//to change color of read: takes the number of the clicked Read button in g and then finds that button and toogles classes
+function read(g) {
+    let readButton = document.querySelector(`#readButton${g}`);
+    readButton.classList.toggle("green");
+    readButton.classList.toggle('red');
+}
