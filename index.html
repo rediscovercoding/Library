@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="javascript.js" defer></script>
+    <title>Personal Library</title>
+    <style>
+        body{
+            display:flex;
+            background-color: rgb(43, 43, 43);
+        }
+        .leftPanel{
+            flex:0.5;
+            background-color: rgb(118, 182, 182);
+            display:grid;
+            grid-template-columns: repeat(2, 1fr);
+            height: 300px;
+            min-width: 300px;
+        }
+        .rightPanel{
+            flex: 1;
+        }
+        
+        h3{
+            grid-column: 1/3;
+        }
+        .Submit{
+            grid-column:2/3;
+            padding: 10px;
+            width: 100px;
+            border-radius: 10px;
+        }
+        .table{
+            
+            color: white;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(200px, 1fr));
+            gap: 5px;
+            padding: 5px;
+
+        }
+        .table div{
+            border: 1px solid White;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: large;
+            justify-self: center;
+            text-align: center;
+            
+            min-width: 100px;
+            max-width: 200px;
+            word-wrap: break-word;
+
+        }
+        
+        .heading{
+            grid-column:1/4;
+        }
+        button{
+            display:block;
+            margin: auto;
+            background-color: aquamarine;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="leftPanel">
+        <h3>Add a new book to your Library</h3>
+        
+        <div class="BookName">Name of the Book</div> <div><input type="text" id="BookName"></div>
+        <div class="AuthorName">Name of Author</div> <div><input type="text" id="authorName"></div>
+        <div class="Pages">Number of Pages</div> <div><input type="number" id="pages"></div>
+    
+        
+        <button class="Submit" onclick="inputBook()">Submit</button>
+    </div>
+    <div class="rightPanel">
+        <div>
+            <div class="table">
+                <div class="heading">Books in Library</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
